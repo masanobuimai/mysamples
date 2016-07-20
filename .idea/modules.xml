@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/javaee-cdi/javaee-cdi.iml" filepath="$PROJECT_DIR$/javaee-cdi/javaee-cdi.iml" />
       <module fileurl="file://$PROJECT_DIR$/mysamples.iml" filepath="$PROJECT_DIR$/mysamples.iml" />
       <module fileurl="file://$PROJECT_DIR$/sampledb/sampledb.iml" filepath="$PROJECT_DIR$/sampledb/sampledb.iml" />
     </modules>

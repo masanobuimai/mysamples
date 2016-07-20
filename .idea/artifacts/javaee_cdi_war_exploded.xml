@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="javaee-cdi:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/javaee_cdi</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="javaee-cdi" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="javaee-cdi/web/Web" />
+    </root>
+  </artifact>
+</component>
