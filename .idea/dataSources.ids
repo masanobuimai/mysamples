@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Derby (Remote) - sampledb@localhost" uuid="29698a19-2d5e-43cf-9eff-08467d4325bb">
+    <database-info product="Apache Derby" version="10.12.1.1 - (1704137)" jdbc-version="4.2" driver-name="Apache Derby Network Client JDBC Driver" driver-version="10.12.1.1 - (1704137)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
+    <schema name="APP" catalog=""/>
+    <table name="AIRLINES" schema="APP" catalog="" type="TABLE">
+      <column name="AIRLINE" sqlType="CHAR" precision="2" scale="0" nullable="false" jdbcType="1"/>
+      <column name="AIRLINE_FULL" sqlType="VARCHAR" precision="24" scale="0" nullable="true" jdbcType="12"/>
+      <column name="BASIC_RATE" sqlType="DOUBLE" precision="52" scale="0" nullable="true" jdbcType="8"/>
+      <column name="DISTANCE_DISCOUNT" sqlType="DOUBLE" precision="52" scale="0" nullable="true" jdbcType="8"/>
+      <column name="BUSINESS_LEVEL_FACTOR" sqlType="DOUBLE" precision="52" scale="0" nullable="true" jdbcType="8"/>
+      <column name="FIRSTCLASS_LEVEL_FACTOR" sqlType="DOUBLE" precision="52" scale="0" nullable="true" jdbcType="8"/>
+      <column name="ECONOMY_SEATS" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="BUSINESS_SEATS" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="FIRSTCLASS_SEATS" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="AIRLINES_PK" columns="AIRLINE"/>
+    </table>
+    <table name="CITIES" schema="APP" catalog="" type="TABLE">
+      <column name="CITY_ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="CITY_NAME" sqlType="VARCHAR" precision="24" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COUNTRY" sqlType="VARCHAR" precision="26" scale="0" nullable="false" jdbcType="12"/>
+      <column name="AIRPORT" sqlType="VARCHAR" precision="3" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LANGUAGE" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="COUNTRY_ISO_CODE" sqlType="CHAR" precision="2" scale="0" nullable="true" jdbcType="1"/>
+      <primary-key name="CITIES_PK" columns="CITY_ID"/>
+      <foreign-key name="COUNTRIES_FK" columns="COUNTRY_ISO_CODE" ref-table="COUNTRIES" ref-schema="APP" ref-catalog="" ref-columns="COUNTRY_ISO_CODE" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="COUNTRIES" schema="APP" catalog="" type="TABLE">
+      <column name="COUNTRY" sqlType="VARCHAR" precision="26" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COUNTRY_ISO_CODE" sqlType="CHAR" precision="2" scale="0" nullable="false" jdbcType="1"/>
+      <column name="REGION" sqlType="VARCHAR" precision="26" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="COUNTRIES_PK" columns="COUNTRY_ISO_CODE"/>
+    </table>
+    <table name="FLIGHTAVAILABILITY" schema="APP" catalog="" type="TABLE">
+      <column name="FLIGHT_ID" sqlType="CHAR" precision="6" scale="0" nullable="false" jdbcType="1"/>
+      <column name="SEGMENT_NUMBER" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="FLIGHT_DATE" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="ECONOMY_SEATS_TAKEN" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="BUSINESS_SEATS_TAKEN" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="FIRSTCLASS_SEATS_TAKEN" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <primary-key name="FLIGHTAVAIL_PK" columns="FLIGHT_ID,SEGMENT_NUMBER,FLIGHT_DATE"/>
+      <foreign-key name="FLIGHTS_FK2" columns="FLIGHT_ID,SEGMENT_NUMBER" ref-table="FLIGHTS" ref-schema="APP" ref-catalog="" ref-columns="FLIGHT_ID,SEGMENT_NUMBER" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="FLIGHTS" schema="APP" catalog="" type="TABLE">
+      <column name="FLIGHT_ID" sqlType="CHAR" precision="6" scale="0" nullable="false" jdbcType="1"/>
+      <column name="SEGMENT_NUMBER" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ORIG_AIRPORT" sqlType="CHAR" precision="3" scale="0" nullable="true" jdbcType="1"/>
+      <column name="DEPART_TIME" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
+      <column name="DEST_AIRPORT" sqlType="CHAR" precision="3" scale="0" nullable="true" jdbcType="1"/>
+      <column name="ARRIVE_TIME" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
+      <column name="MEAL" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="FLYING_TIME" sqlType="DOUBLE" precision="52" scale="0" nullable="true" jdbcType="8"/>
+      <column name="MILES" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="AIRCRAFT" sqlType="VARCHAR" precision="6" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="FLIGHTS_PK" columns="FLIGHT_ID,SEGMENT_NUMBER"/>
+    </table>
+    <table name="FLIGHTS_HISTORY" schema="APP" catalog="" type="TABLE">
+      <column name="FLIGHT_ID" sqlType="CHAR" precision="6" scale="0" nullable="true" jdbcType="1"/>
+      <column name="SEGMENT_NUMBER" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ORIG_AIRPORT" sqlType="CHAR" precision="3" scale="0" nullable="true" jdbcType="1"/>
+      <column name="DEPART_TIME" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
+      <column name="DEST_AIRPORT" sqlType="CHAR" precision="3" scale="0" nullable="true" jdbcType="1"/>
+      <column name="ARRIVE_TIME" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92"/>
+      <column name="MEAL" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="FLYING_TIME" sqlType="DOUBLE" precision="52" scale="0" nullable="true" jdbcType="8"/>
+      <column name="MILES" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="AIRCRAFT" sqlType="VARCHAR" precision="6" scale="0" nullable="true" jdbcType="12"/>
+      <column name="STATUS" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="MAPS" schema="APP" catalog="" type="TABLE">
+      <column name="MAP_ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4" def="QVVUT0lOQ1JFTUVOVDogc3RhcnQgMSBpbmNyZW1lbnQgMQ==" autoIncrement="true"/>
+      <column name="MAP_NAME" sqlType="VARCHAR" precision="24" scale="0" nullable="false" jdbcType="12"/>
+      <column name="REGION" sqlType="VARCHAR" precision="26" scale="0" nullable="true" jdbcType="12"/>
+      <column name="AREA" sqlType="DECIMAL" precision="8" scale="4" nullable="false" jdbcType="3"/>
+      <column name="PHOTO_FORMAT" sqlType="VARCHAR" precision="26" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PICTURE" sqlType="BLOB" precision="102400" scale="0" nullable="true" jdbcType="2004"/>
+    </table>
+  </data-source>
+</component>
