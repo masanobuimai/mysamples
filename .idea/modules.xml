@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/javaee-facelets/javaee-facelets.iml" filepath="$PROJECT_DIR$/javaee-facelets/javaee-facelets.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaee-soap/javaee-soap.iml" filepath="$PROJECT_DIR$/javaee-soap/javaee-soap.iml" />
       <module fileurl="file://$PROJECT_DIR$/mysamples.iml" filepath="$PROJECT_DIR$/mysamples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven/sample-apps/sample-apps.iml" filepath="$PROJECT_DIR$/maven/sample-apps/sample-apps.iml" />
       <module fileurl="file://$PROJECT_DIR$/sampledb/sampledb.iml" filepath="$PROJECT_DIR$/sampledb/sampledb.iml" />
     </modules>
   </component>
