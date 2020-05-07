@@ -12,13 +12,15 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../out/production/javaee-cdi" />
+    <output-test url="file://$MODULE_DIR$/../out/test/javaee-cdi" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="javaee7" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="javax:javaee-api:7.0" level="project" />
   </component>
 </module>

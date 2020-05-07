@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/javaee-cdi/javaee-cdi.iml" filepath="$PROJECT_DIR$/javaee-cdi/javaee-cdi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaee-cu4jee/javaee-cu4jee.iml" filepath="$PROJECT_DIR$/javaee-cu4jee/javaee-cu4jee.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaee-facelets/javaee-facelets.iml" filepath="$PROJECT_DIR$/javaee-facelets/javaee-facelets.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaee-soap/javaee-soap.iml" filepath="$PROJECT_DIR$/javaee-soap/javaee-soap.iml" />
       <module fileurl="file://$PROJECT_DIR$/mysamples.iml" filepath="$PROJECT_DIR$/mysamples.iml" />

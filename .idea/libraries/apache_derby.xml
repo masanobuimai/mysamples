@@ -2,6 +2,7 @@
   <library name="apache-derby">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/_libs/derby" />
+      <root url="file://$PROJECT_DIR$/_libs/javadb" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
