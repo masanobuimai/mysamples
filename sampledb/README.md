@@ -1,12 +1,28 @@
 Apache DerbyのデモDB（ToursDb）をパクってきた。
 
-**使い方**
+### DBの初期化
 
- * Derbyをネットワークモードで立ち上げる。
- * jdbc:derby://localhost:1527/sampledb;create=true で接続
- * ToursDB_schema.sql を実行
- * insertMaps を実行
- * loadTables.sql の順番に従って，残りのSQLファイルを実行
+* volumeの作成
+  ```docker volume create sample_data```
+* docker-comple.ymlを実行する
+  * docker-entrypoint-initdb.d/ の中身が実行される
+  * src/toursdb/insertMaps はまだ直してないので，動かない
 
-sampledbは，mysamples/sampledb/db に作成するように実行構成（Apache-Derby）を組んでる。
-それがイヤだったら，他のディレクトリに変更してよい。
+volume含めて削除する場合は ```docker-compose down -v```を実行する
+
+### DBの使い方
+
+* 接続文字列
+  jdbc:postgresql://localhost:5432/sample_local
+* ID/パスワード
+  postgres / password
+
+* pgadmin経由の場合
+  * URL http://localhost/
+  * ID/パスワード
+    admin / password
+  * サーバを追加する場合
+    * host:db (docker-composeのサービス名)
+    * database:sample_local
+    * username/password:postgres/password
+    

@@ -1,0 +1,27 @@
+version: '2'
+services:
+  db:
+    build: .
+    container_name: "sample-db"
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - sample_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sample_local
+  adm:
+    image: dpage/pgadmin4:latest
+    container_name: "pgadmin"
+    volumes:
+      - /host_mnt/c/local/tmp/pgadmin:/var/lib/pgadmin
+    ports:
+      - "80:80"
+    environment:
+       PGADMIN_DEFAULT_EMAIL: admin
+       PGADMIN_DEFAULT_PASSWORD: password
+volumes:
+  sample_data:
+    driver: local
