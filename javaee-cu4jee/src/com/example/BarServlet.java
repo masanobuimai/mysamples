@@ -27,22 +27,18 @@ public class BarServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Runnable command = new Runnable() {
-            @Override
-            public void run() {
-                ThreadLocal<String> threadLocal = new ThreadLocal<>();
-                String label = Optional.ofNullable(threadLocal.get()).orElse("");
-                label += ":HELLO";
-                log.info(label);
-                threadLocal.set(label);
-                try {
-                    TimeUnit.SECONDS.sleep(5);
-                } catch (InterruptedException ignore) {
-                }
-                log.info("NEXT");
+        executorService.execute(() -> {
+            ThreadLocal<String> threadLocal = new ThreadLocal<>();
+            String label = Optional.ofNullable(threadLocal.get()).orElse("");
+            label += ":HELLO";
+            log.info(label);
+            threadLocal.set(label);
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException ignore) {
             }
-        };
-        executorService.execute(command);
+            log.info("NEXT");
+        });
     }
 
     @PreDestroy

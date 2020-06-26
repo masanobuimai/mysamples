@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
+  <!--
   <resource-ref>
     <res-ref-name>myPostgresDS</res-ref-name>
     <res-type>javax.sql.DataSource</res-type>
   </resource-ref>
+  <data-source>
+    <name>java:app/jdbc/postds</name>
+    <class-name>org.postgresql.Driver</class-name>
+    <url>jdbc:postgresql://localhost:5432/sample_local</url>
+    <user>postgres</user>
+    <password>password</password>
+  </data-source>
+  -->
 </web-app>

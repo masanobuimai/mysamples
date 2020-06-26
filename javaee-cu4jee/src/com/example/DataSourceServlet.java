@@ -2,8 +2,6 @@ package com.example;
 
 import javax.annotation.PostConstruct;
 import javax.naming.InitialContext;
-import javax.naming.NameClassPair;
-import javax.naming.NamingEnumeration;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.sql.DataSource;
@@ -20,12 +18,14 @@ public class DataSourceServlet extends HttpServlet {
     public void init() {
         try {
             InitialContext ctx = new InitialContext();
+            /*
             NamingEnumeration<NameClassPair> list = ctx.list("java:openejb/Resource");
             while (list.hasMoreElements()) {
                 NameClassPair pair = list.nextElement();
                 log.info("java:openejb/Resource/ -> " + pair.getName());
             }
-            DataSource dataSource = (DataSource) ctx.lookup("java:comp/env/myPostgresDS");
+             */
+            DataSource dataSource = (DataSource) ctx.lookup("java:app/jdbc/postds");
             log.info("ds=" + dataSource);
             Connection con = dataSource.getConnection();
             DatabaseMetaData metaData = con.getMetaData();
