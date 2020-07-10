@@ -1,5 +1,7 @@
 package com.example;
 
+import org.apache.commons.lang.StringUtils;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +22,7 @@ public class FooServlet extends HttpServlet {
 
     @PostConstruct
     public void init() {
+        log.info(">>>> " + StringUtils.class);
         executorService = Executors.newFixedThreadPool(1);
     }
 
