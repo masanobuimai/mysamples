@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <datasources>
-  <datasource jndi-name="java:jboss/jdbc/postds" pool-name="PostgresPool">
+  <datasource jndi-name="java:/comp/env/jdbc/postds" pool-name="PostgresPool">
     <connection-url>jdbc:postgresql://localhost:5432/sample_local</connection-url>
     <driver>postgresql-42.2.14.jar</driver>
     <security>

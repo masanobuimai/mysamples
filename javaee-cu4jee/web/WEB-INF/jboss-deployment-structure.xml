@@ -3,6 +3,7 @@
   <deployment>
     <dependencies>
       <module name="org.apache.commons.lang"/>
+      <module name="org.postgresql"/>
     </dependencies>
   </deployment>
 </jboss-deployment-structure>

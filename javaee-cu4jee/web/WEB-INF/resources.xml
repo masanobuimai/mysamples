@@ -1,9 +1,9 @@
 <resources>
-  <Resource id="myPostgresDS" type="javax.sql.DataSource">
+  <Resource id="jdbc/myPostgresDS" type="javax.sql.DataSource">
     # TomEEでのデータソース設定例（PostgreSQL example
-    JdbcDriver  org.postgresql.Driver
-    JdbcUrl     jdbc:postgresql://localhost:5432/sample_local
-    UserName    postgres
-    Password    password
+    JdbcDriver org.postgresql.Driver
+    JdbcUrl jdbc:postgresql://localhost:5432/sample_local
+    UserName postgres
+    Password password
   </Resource>
 </resources>
