@@ -28,9 +28,9 @@ public class DataSourceServlet extends HttpServlet {
             // web.xmlに直接DSを定義する（WildFly以外は動く）
 //            DataSource dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/localDS");
             // TomEE: WEB-INF/resources.xml と web.xml を参照, Glassfishも glassfish-web.xmlのresource-refがあるとこれでイケる
-            DataSource dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/myPostgresDS");
+//            DataSource dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/myPostgresDS");
             // WildFly: WEB-INF/psotgres-ds.xml を参照
-//            DataSource dataSource = (DataSource) ctx.lookup("java:/comp/env/jdbc/postds");
+            DataSource dataSource = (DataSource) ctx.lookup("java:/comp/env/jdbc/postds");
             // Glassfish: WEB-INF/glassfish-resources.xml を参照
 //            DataSource dataSource = (DataSource) ctx.lookup("java:app/jdbc/postds");
             log.info("ds=" + dataSource);

@@ -45,7 +45,35 @@ TomEEのログが文字化けする場合，IntelliJでは idea.vmoptions に以
   * このとき，JNDI Nameを「```java:/comp/env/～```」で登録する
 
 web.xmlのresource-refは無くても問題ない
-  
+
+## WildFlyでデータソースを設定する（設定ファイルのみ）
+
+* WILDFLY_HOME/modules/system/layers/base の適当な場所にJDBCドライバを配置する
+  * PostgreSQLだったら org/postgresql/main
+* 上記と同じ場所に module.xml を配置する（PostgreSQLの例）
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="org.postgresql" xmlns="urn:jboss:module:1.6">
+  <resources>
+    <resource-root path="postgresql-42.2.14.jar"/>
+  </resources>
+  <dependencies>
+    <module name="javax.api"/>
+    <module name="javax.transaction.api"/>
+  </dependencies>
+</module>
+```
+
+* WILDFLY_HOME/standalone/configuration/standalone.xmlを開き <drivers> にJDBCドライバ情報を追加する
+  * moduleはmodule.xmlに登録したものと同じ名前
+```
+<driver name="PostgreSQL" module="org.postgresql">
+  <driver-class>org.postgresql.Driver</driver-class>
+  <datasource-class>org.postgresql.ds.PGSimpleDataSource</datasource-class>
+</driver
+```
+
+
 ## Glassfishでデータソースを設定する
 
 * ```$GF_HOME/glassfish/lib``` にJDBCドライバを配置する
