@@ -33,7 +33,7 @@ public class UploadServlet extends HttpServlet {
             if (dispotion.trim().startsWith("filename")) {
                 log.info(">" + dispotion.trim() + "<");
                 name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
-                name = name.substring(name.lastIndexOf("\\") + 1);
+//                name = name.substring(name.lastIndexOf("\\") + 1);
                 break;
             }
         }
