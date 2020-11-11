@@ -15,24 +15,24 @@ import java.util.List;
 
 @Controller
 public class HelloController {
-    private final CityMapper cityMapper;
+  private final CityMapper cityMapper;
 
-    private final SqlSession sqlSession;
+  private final SqlSession sqlSession;
 
-    public HelloController(CityMapper cityMapper, SqlSession sqlSession) {
-        this.cityMapper = cityMapper;
-        this.sqlSession = sqlSession;
-    }
+  public HelloController(CityMapper cityMapper, SqlSession sqlSession) {
+    this.cityMapper = cityMapper;
+    this.sqlSession = sqlSession;
+  }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Model model) {
-        model.addAttribute("message", "Hello世界!!");
-        return "index";
-    }
+  @RequestMapping(value = "/", method = RequestMethod.GET)
+  public String index(Model model) {
+    model.addAttribute("message", "Hello世界!!");
+    return "index";
+  }
 
-    @GetMapping({"/list", "/list/{lang}"})
-    @ResponseBody
-    public List<City> list(@PathVariable(name = "lang", required = false) String lang) {
-        return cityMapper.findByLanguage(lang);
-    }
+  @GetMapping({"/list", "/list/{lang}"})
+  @ResponseBody
+  public List<City> list(@PathVariable(name = "lang", required = false) String lang) {
+    return cityMapper.findByLanguage(lang);
+  }
 }

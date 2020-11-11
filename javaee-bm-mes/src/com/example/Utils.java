@@ -12,7 +12,7 @@ public class Utils {
         BeanManager bm = cdi.getBeanManager();
         AnnotatedType<T> type = bm.createAnnotatedType((Class<T>) target.getClass());
         InjectionTarget<T> it = bm.getInjectionTargetFactory(type)
-                .createInjectionTarget(null);
+                                  .createInjectionTarget(null);
         if (!it.getInjectionPoints().isEmpty()) {
             // インジェクション可能なときのみ，インジェクションする
             CreationalContext<T> ctx = bm.createCreationalContext(null);

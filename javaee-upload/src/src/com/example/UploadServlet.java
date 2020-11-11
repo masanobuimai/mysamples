@@ -14,29 +14,29 @@ import java.util.logging.Logger;
 @MultipartConfig
 public class UploadServlet extends HttpServlet {
 
-    private static final Logger log = Logger.getLogger("upload");
+  private static final Logger log = Logger.getLogger("upload");
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Part part = request.getPart("file");
-        String name = this.getFileName(part);
-        String submittedFileName = part.getSubmittedFileName();
-        log.info("name = " + name);
-        log.info("submittedFileName = " + submittedFileName);
-        log.info("----------");
-        response.sendRedirect("index.jsp");
-    }
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    Part part = request.getPart("file");
+    String name = this.getFileName(part);
+    String submittedFileName = part.getSubmittedFileName();
+    log.info("name = " + name);
+    log.info("submittedFileName = " + submittedFileName);
+    log.info("----------");
+    response.sendRedirect("index.jsp");
+  }
 
-    private String getFileName(Part part) {
-        String name = null;
-        for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
-            if (dispotion.trim().startsWith("filename")) {
-                log.info(">" + dispotion.trim() + "<");
-                name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
+  private String getFileName(Part part) {
+    String name = null;
+    for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
+      if (dispotion.trim().startsWith("filename")) {
+        log.info(">" + dispotion.trim() + "<");
+        name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
 //                name = name.substring(name.lastIndexOf("\\") + 1);
-                break;
-            }
-        }
-        return name;
+        break;
+      }
     }
+    return name;
+  }
 }

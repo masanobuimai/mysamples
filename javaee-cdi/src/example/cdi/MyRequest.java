@@ -8,6 +8,8 @@ import java.io.Serializable;
 public class MyRequest implements Serializable {
   @Inject
   private MyBean myBean;
-  
-  public MyBean getMyBean() { return myBean; }
+
+  public MyBean getMyBean() {
+    return myBean;
+  }
 }

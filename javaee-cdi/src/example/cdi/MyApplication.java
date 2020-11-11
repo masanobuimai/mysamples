@@ -6,8 +6,10 @@ import java.io.Serializable;
 
 @ApplicationScoped
 public class MyApplication implements Serializable {
-  @Inject
-  private MyBean myBean;
-  
-  public MyBean getMyBean() { return myBean; }
+    @Inject
+    private MyBean myBean;
+
+    public MyBean getMyBean() {
+        return myBean;
+    }
 }

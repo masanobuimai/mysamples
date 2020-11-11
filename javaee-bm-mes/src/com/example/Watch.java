@@ -11,8 +11,8 @@ public class Watch {
 
     public static void push() {
         IntStream.range(0, 10)
-                .map(i -> ++counter)
-                .forEach(i -> stack.add(i));
+                 .map(i -> ++counter)
+                 .forEach(i -> stack.add(i));
     }
 
     public static Integer pop() {
